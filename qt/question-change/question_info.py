@@ -20,20 +20,20 @@ class QuestionInfo:
         self.explain_2 = explain_2
         self.count_down = count_down
 
-    def generate_widget(self, question_signals: QuestionSignals):
+    def generate_widget(self, index: int, question_signals: QuestionSignals):
         mapping = {
             "intro_1": QuestionInfo0,
             "countdown": QuestionInfo1,
             "result": QuestionInfo2
         }
-        return mapping[self.t](self, question_signals)
+        return mapping[self.t](self, index, question_signals)
 
     def __repr__(self):
         return f"t={self.t}, title={self.title}, subtitle={self.subtitle}, video_path={self.video_path}, explain_1={self.explain_1}, explain_2={self.explain_2}, count_down={self.count_down}"
 
 
 class QuestionInfo0(Ui_Question0, QWidget, BaseWidget):
-    def __init__(self, question: QuestionInfo, question_signals: QuestionSignals):
+    def __init__(self, question: QuestionInfo, index: int, question_signals: QuestionSignals):
         super(QuestionInfo0, self).__init__()
         self.setupUi(self)
         self.title.setText(question.title)
@@ -42,29 +42,38 @@ class QuestionInfo0(Ui_Question0, QWidget, BaseWidget):
         self.media_player.setVideoOutput(self.video_widget)
         self.media_player.setMedia(media_content)
         self.question_signals = question_signals
+        self.index = index
+        self.media_player.mediaStatusChanged.connect(self.on_status_changed)
 
     def process(self):
         self.media_player.play()
 
+    def on_status_changed(self, status):
+        if status == QMediaPlayer.EndOfMedia:
+            print("media end")
+            self.question_signals.index.emit(self.index)
+
 
 class QuestionInfo1(Ui_Question1, QWidget, BaseWidget):
-    def __init__(self, question: QuestionInfo, question_signals: QuestionSignals):
+    def __init__(self, question: QuestionInfo, index: int, question_signals: QuestionSignals):
         super(QuestionInfo1, self).__init__()
         self.setupUi(self)
         self.label_0.setText(question.explain_1)
         self.label_1.setText(question.explain_2)
         self.question_signals = question_signals
+        self.index = index
 
     def process(self):
         pass
 
 
 class QuestionInfo2(Ui_Question2, QWidget, BaseWidget):
-    def __init__(self, question: QuestionInfo, question_signals: QuestionSignals):
+    def __init__(self, question: QuestionInfo, index: int, question_signals: QuestionSignals):
         super(QuestionInfo2, self).__init__()
         self.setupUi(self)
         self.label_result.setText("恭喜Solarex答对 + 20分")
         self.question_signals = question_signals
+        self.index = index
 
     def process(self):
         pass

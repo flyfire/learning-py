@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(720, 400)
-        self.label_result = QtWidgets.QLabel(Form)
+class Ui_Question2(object):
+    def setupUi(self, Question2):
+        Question2.setObjectName("Question2")
+        Question2.resize(720, 400)
+        self.label_result = QtWidgets.QLabel(Question2)
         self.label_result.setGeometry(QtCore.QRect(60, 80, 600, 240))
         self.label_result.setStyleSheet("color: rgb(91, 97, 255);\n"
 "font: 14pt \"Menlo\";")
@@ -24,10 +24,10 @@ class Ui_Form(object):
         self.label_result.setWordWrap(True)
         self.label_result.setObjectName("label_result")
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Question2)
+        QtCore.QMetaObject.connectSlotsByName(Question2)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Question2):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_result.setText(_translate("Form", "TextLabel"))
+        Question2.setWindowTitle(_translate("Question2", "Form"))
+        self.label_result.setText(_translate("Question2", "TextLabel"))

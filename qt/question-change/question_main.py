@@ -3,9 +3,11 @@ from PyQt5.QtWidgets import QApplication, QVBoxLayout
 
 from question import parse_questions
 from question_container import QuestionContainer
+from question_signals import QuestionSignals
 
 if __name__ == '__main__':
     app = QApplication([])
+    question_signals = QuestionSignals()
     questions = parse_questions("questions.json")
     widgets = []
     for question in questions:

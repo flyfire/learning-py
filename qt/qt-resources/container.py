@@ -14,8 +14,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_container(object):
     def setupUi(self, container):
         container.setObjectName("container")
-        container.resize(715, 640)
-        container.setStyleSheet("border-image: url(:/images/kkx.jpeg);")
+        container.resize(829, 723)
+        container.setStyleSheet("background-image: url(:/images/kkx.jpeg);")
+        self.label = QtWidgets.QLabel(container)
+        self.label.setGeometry(QtCore.QRect(0, 0, 400, 400))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(":/images/kkx.jpeg"))
+        self.label.setObjectName("label")
+        self.widget = QtWidgets.QWidget(container)
+        self.widget.setGeometry(QtCore.QRect(180, 470, 321, 151))
+        self.widget.setObjectName("widget")
 
         self.retranslateUi(container)
         QtCore.QMetaObject.connectSlotsByName(container)

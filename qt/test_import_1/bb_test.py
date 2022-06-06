@@ -3,7 +3,7 @@
 class B:
     def __init__(self, a):
         super(B, self).__init__()
-        a.test(self)
+        a.test_0(self)
 
     def is_processing(self):
         return True

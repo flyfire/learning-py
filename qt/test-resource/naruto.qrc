@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="images">
+        <file alias="naruto-1.jpeg">../test-resource/naruto-1.jpeg</file>
+    </qresource>
+</RCC>

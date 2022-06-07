@@ -1,5 +1,6 @@
 from PyQt5 import QtGui
 from PyQt5.QtCore import QPropertyAnimation, QRect
+from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import QWidget, QApplication
 
 from test_scale_container import Ui_test_scale_container

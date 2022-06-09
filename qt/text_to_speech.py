@@ -13,6 +13,7 @@ print("Enter some text that you want to speak >")
 text = input()
 
 speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
+print(speech_synthesis_result)
 
 if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
     print("Speech synthesized for text [{}]".format(text))

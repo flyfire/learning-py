@@ -6,3 +6,8 @@ if __name__ == '__main__':
     filename = os.path.join(dir, 'tmp/tmp.jpg')
     print(filename)
     print(os.path.splitext(__file__))
+    import uuid
+    uid = uuid.uuid1()
+    print(type(uid))
+    uid = str(uid)
+    print(uid)

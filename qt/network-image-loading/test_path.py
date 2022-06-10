@@ -11,3 +11,7 @@ if __name__ == '__main__':
     print(type(uid))
     uid = str(uid)
     print(uid)
+
+class Test:
+    def set_hash_code(self):
+        pass
